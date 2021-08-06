@@ -1,8 +1,15 @@
-# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
-
 version: '3.4'
 
 services:
+  reactapp:
+    image: reactapp
+    build:
+      context: reactapp
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
   dotnetdemowebapi:
     image: dotnetdemowebapi
     build:
