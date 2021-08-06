@@ -11,6 +11,8 @@ namespace DotNetDemo.WebApi
 
     public class Startup
     {
+        readonly string MyAllowedSpecificOrigins = "_myAllowedSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -21,6 +23,17 @@ namespace DotNetDemo.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // services.AddCors(options => {
+            //     options.AddPolicy(name: MyAllowedSpecificOrigins,
+            //     builder => {
+            //         builder
+            //         .WithOrigins("http://localhost:3000/")
+            //         .AllowAnyHeader()
+            //         .AllowAnyMethod()
+            //         .AllowCredentials();
+            //     });
+            // });
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -41,6 +54,15 @@ namespace DotNetDemo.WebApi
             }
 
             app.UseRouting();
+
+            //app.UseCors(MyAllowedSpecificOrigins);
+            app.UseCors(x => x
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                //.AllowAnyOrigin()
+                .SetIsOriginAllowed(origin => true)
+                .AllowCredentials()
+            );
 
             app.UseAuthorization();
 
