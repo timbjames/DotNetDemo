@@ -25,6 +25,8 @@ const PersonList: React.FC<IPersonListProps> = ({ isSearch }) => {
         }
     }, [isSearch]);
 
+    // TODO xUI: Need to do something
+
     return (
         <div>
             List of people { isSearch && '"filtered"' }
