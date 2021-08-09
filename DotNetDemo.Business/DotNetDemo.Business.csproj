@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\DotNetDemo.ViewModels\DotNetDemo.ViewModels.csproj" />
     <ProjectReference Include="..\DotNetDemo.Data\DotNetDemo.Data.csproj" PrivateAssets="All" />
   </ItemGroup>
 

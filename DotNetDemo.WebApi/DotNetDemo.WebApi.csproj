@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotNetDemo.Business\DotNetDemo.Business.csproj" />
-    <ProjectReference Include="..\DotNetDemo.ViewModels\DotNetDemo.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 
 import http from '../../../common/http-client';
-import { IApiPerson, IApiSearchResult } from '../interfaces/interfaces';
+import { IApiPeopleTools, IApiPerson, IApiSearchResult } from '../interfaces/interfaces';
 
 class PersonService {
 
@@ -11,6 +11,10 @@ class PersonService {
 
     public searchPeople = (): Promise<AxiosResponse<IApiSearchResult>> => {
         return http.get('/Person/Search?pettypeid=2');
+    }
+
+    public getTools = (): Promise<AxiosResponse<IApiPeopleTools>> => {
+        return http.get('/Person/Tools');
     }
 }
   

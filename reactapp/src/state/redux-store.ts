@@ -1,14 +1,17 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { reducer as toastrReducer } from 'react-redux-toastr';
 
+import personReducer from '../features/person/state/personSlice';
+
 // Here I would add other redux state
 export const store = configureStore({
-    reducer: {      
+    reducer: {
+        person: personReducer,
         toastr: toastrReducer
     }
 });
 
 export type AppState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export type AppThunk = ThunkAction<unknown, AppState, null, Action<any>>;
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppState, null, Action<any>>;
 export default store;

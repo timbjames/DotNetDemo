@@ -6,3 +6,12 @@ export interface IApiPerson {
 export interface IApiSearchResult {
     results: IApiPerson[];
 }
+
+interface KeyValuePair {
+    key: string;
+    value: string;
+}
+
+export interface IApiPeopleTools {
+    petTypes: KeyValuePair[];
+}

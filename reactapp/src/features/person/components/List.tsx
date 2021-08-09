@@ -1,35 +1,36 @@
-import { AxiosResponse } from 'axios';
-import React, { useEffect, useState } from 'react';
-import { IApiPerson, IApiSearchResult } from '../interfaces/interfaces';
+import React, { useCallback, useEffect, useRef } from 'react';
 
-import PeopleService from '../services/person.service';
+import { useAppDispatch, useAppSelector } from '../../../hooks/appHooks';
+import { alternateState, changeStatus, getPeopleAsync, getToolsAsync } from '../state/personSlice';
 
-interface IPersonListProps {
-    isSearch: boolean;
-}
+const PersonList: React.FC = () => {
 
-const PersonList: React.FC<IPersonListProps> = ({ isSearch }) => {
+    const personState = useAppSelector(state => state.person);
+    const dispatch = useAppDispatch();
+    const { people, status, tools } = personState;
 
-    const [people, setPeople] = useState([] as IApiPerson[]);
+    const selectedPetType = useRef<HTMLSelectElement>(null);
+
+    const getPeople = useCallback(() => {
+        dispatch(getPeopleAsync());
+        dispatch(getToolsAsync());
+
+        console.log(selectedPetType.current?.value);
+
+    }, [dispatch]);
 
     useEffect(() => {
-
-        if (isSearch){
-            PeopleService.searchPeople().then((response: AxiosResponse<IApiSearchResult>) => {
-                setPeople(response.data.results);
-            });
-        } else {
-            PeopleService.getPeople().then((response: AxiosResponse<IApiPerson[]>) => {
-                setPeople(response.data);
-            });
-        }
-    }, [isSearch]);
+        getPeople();
+    }, [getPeople]);
 
     // TODO xUI: Need to do something
 
     return (
         <div>
-            List of people { isSearch && '"filtered"' }
+
+            <hr />
+
+            List of people
 
             {
                 people && people.map(x => {
@@ -38,6 +39,51 @@ const PersonList: React.FC<IPersonListProps> = ({ isSearch }) => {
                     )
                 })
             }
+
+            { people && people.length === 0 &&  <div>No People</div> }
+
+            <hr />
+
+            <div className="mb-3">
+                <label className="form-label">Pet Types</label>
+                <select className="form-select" ref={selectedPetType}>
+                    <option value={-1}>Please Select</option>
+                    {
+                        (tools && tools.petTypes) && tools.petTypes.map((x, index) => {
+                            return <option key={index} value={x.value}>{x.key}</option>
+                        })
+                    }
+                </select>
+            </div>
+
+            <div className="btn-group">
+
+                {
+                    (status === 'loading') && (
+                        <button className="btn btn-primary" type="button" disabled>
+                            <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...
+                        </button>
+                    )
+                }
+
+                {
+                    status === 'idle' && (
+                        <button className="btn btn-primary" type="button" onClick={() => { getPeople(); }}>
+                            Search
+                        </button>
+                    )
+                }
+
+                <button className="btn btn-outline-primary" type="button" onClick={() => { dispatch(changeStatus('loading'));}}>
+                    Change Status
+                </button>
+
+                <button className="btn btn-outline-primary" type="button" onClick={() => { dispatch(alternateState());}}>
+                    Alternate State
+                </button>
+
+            </div>
+
         </div>
     );
 };

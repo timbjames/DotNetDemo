@@ -7,6 +7,7 @@
     using DotNetDemo.Business.Models;
     using DotNetDemo.Business.ViewModels;
     using System.Collections.Generic;
+    using System.Threading;
 
     [ApiController]
     [Route("[controller]")]
@@ -23,6 +24,9 @@
 
         [HttpGet]
         public IEnumerable<Person> Get(){
+
+            Thread.Sleep(2000);
+
             return _personService.GetPeople();
         }
 
