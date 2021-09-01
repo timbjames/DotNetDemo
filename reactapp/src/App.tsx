@@ -16,7 +16,7 @@ const App: React.FC = () => {
 
       <Router>
 
-        <nav className="navbar navbar-expand navbar-dark bg-dark ps-4">
+        <nav className="navbar navbar-expand navbar-dark bg-dark ps-4" aria-label="main">
           <a href="/tutorials" className="navbar-brand">
             DotNetDemo
           </a>
@@ -33,7 +33,7 @@ const App: React.FC = () => {
             </li>
           </div>
         </nav>
-        
+
         <div className="container mt-3">
 
           <div>Hello World</div>

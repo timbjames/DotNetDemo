@@ -11,17 +11,17 @@ const PersonList: React.FC = () => {
 
     const selectedPetType = useRef<HTMLSelectElement>(null);
 
-    const getPeople = useCallback(() => {
-        dispatch(getPeopleAsync());
-        dispatch(getToolsAsync());
+    // const getPeople = useCallback(() => {
+    //     dispatch(getPeopleAsync());
+    //     dispatch(getToolsAsync());
 
-        console.log(selectedPetType.current?.value);
+    //     console.log(selectedPetType.current?.value);
 
-    }, [dispatch]);
+    // }, [dispatch]);
 
-    useEffect(() => {
-        getPeople();
-    }, [getPeople]);
+    // useEffect(() => {
+    //     getPeople();
+    // }, [getPeople]);
 
     // TODO xUI: Need to do something
 
@@ -33,9 +33,9 @@ const PersonList: React.FC = () => {
             List of people
 
             {
-                people && people.map(x => {
+                people && people.map((x, index) => {
                     return (
-                        <h2>{x.name}</h2>
+                        <h2 key={index}>{x.name}</h2>
                     )
                 })
             }
@@ -68,7 +68,7 @@ const PersonList: React.FC = () => {
 
                 {
                     status === 'idle' && (
-                        <button className="btn btn-primary" type="button" onClick={() => { getPeople(); }}>
+                        <button className="btn btn-primary" type="button" onClick={() => { /*getPeople();*/ }}>
                             Search
                         </button>
                     )
