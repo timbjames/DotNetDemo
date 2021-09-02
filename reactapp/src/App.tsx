@@ -1,14 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, NavLink, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 import ReduxToastr from 'react-redux-toastr';
 import { Provider } from 'react-redux';
 
-import store from './state/redux-store';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { PersonList } from '@features/person/components/list.component';
-import Details from '@features/car/components/details.component';
+import store from './state/redux-store';
+import PageRoot from './pages/root.component';
 
 const App: React.FC = () => {
 
@@ -37,24 +35,20 @@ const App: React.FC = () => {
 
         <div className="container mt-3">
 
-          <div>Hello World</div>
-
-          <PersonList />
-
-          <Details />
+          <PageRoot />
 
         </div>
 
-        <ReduxToastr 
-          timeOut={3000} 
-          preventDuplicates 
-          position="top-left" 
-          transitionIn="fadeIn" 
-          transitionOut="fadeOut" 
-          closeOnToastrClick progressBar />
-
       </Router>
-      
+
+      <ReduxToastr 
+        timeOut={3000} 
+        preventDuplicates 
+        position="top-left" 
+        transitionIn="fadeIn" 
+        transitionOut="fadeOut" 
+        closeOnToastrClick progressBar />
+
     </Provider>
   );
 }
