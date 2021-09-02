@@ -13,6 +13,9 @@ const PageRoot: React.FC = () => {
             <Route path="/add">
                 <Details />
             </Route>
+            <Route path="/">
+                <div><h1>Welcome!</h1></div>
+            </Route>
         </Switch>
     );
 }
