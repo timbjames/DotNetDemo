@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { PersonList } from '../List';
+import { PersonList } from '../list.component';
 
 test('renders person list empty', () => {
     render(<PersonList />);

@@ -7,7 +7,8 @@ import store from './state/redux-store';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { PersonList } from './features/person/components/List';
+import { PersonList } from '@features/person/components/list.component';
+import Details from '@features/car/components/details.component';
 
 const App: React.FC = () => {
 
@@ -39,6 +40,8 @@ const App: React.FC = () => {
           <div>Hello World</div>
 
           <PersonList />
+
+          <Details />
 
         </div>
 
