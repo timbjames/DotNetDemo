@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 
-import http from '../../utils/service/http-client';
+import http from '@utils/service/http-client';
 import { IApiPeopleTools, IApiPerson, IApiSearchResult } from './interfaces';
 
 class PersonService {

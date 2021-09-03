@@ -1,7 +1,7 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { reducer as toastrReducer } from 'react-redux-toastr';
 
-import personReducer from '../features/person/slice';
+import personReducer from '@features/person/slice';
 
 // Here I would add other redux state
 export const store = configureStore({

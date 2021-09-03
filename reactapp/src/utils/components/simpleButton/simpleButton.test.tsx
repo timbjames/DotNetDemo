@@ -2,12 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { ISimpleButtonProps, SimpleButton } from '@utils/components/simpleButton/simpleButton.component';
 
-// test('renders', () => {
-//   render(<SimpleButton />);
-//   const headerElement = screen.getByText(/Hi/i);
-//   expect(headerElement).toBeInTheDocument();
-// });
-
 describe('a simple button', () => {
 
     test('renders primary button', () => {

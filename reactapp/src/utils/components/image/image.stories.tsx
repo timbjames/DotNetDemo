@@ -7,7 +7,7 @@ import { photoSrc } from '@utils/components/image/image.constants';
 const altText = 'abcd';
 
 export default {
-    title: 'Example/Image',
+    title: 'Utility Components/Image',
     component: Image
 } as ComponentMeta<typeof Image>;
 

@@ -3,7 +3,9 @@
       "baseUrl": "./src",
       "paths": {
         "@features/*": ["features/*"],
+        "@hooks/*": ["hooks/*"],
         "@pages/*": ["pages/*"],
+        "@state/*": ["state/*"],
         "@utils/*": ["utils/*"]
       }
     }

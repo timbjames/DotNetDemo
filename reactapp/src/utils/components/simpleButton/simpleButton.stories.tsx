@@ -6,11 +6,8 @@ import { SimpleButton } from '@utils/components/simpleButton/simpleButton.compon
 import 'bootstrap/dist/css/bootstrap.css'; 
 
 export default {
-  title: 'Example/Button',
-  component: SimpleButton,
-  // argTypes: {
-  //   backgroundColor: { control: 'color' },
-  // },
+  title: 'Utility Components/Button',
+  component: SimpleButton
 } as ComponentMeta<typeof SimpleButton>;
 
 const Template: ComponentStory<typeof SimpleButton> = (args) => <SimpleButton {...args} />;

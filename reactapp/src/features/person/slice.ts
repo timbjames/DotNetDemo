@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AppThunk } from '../../state/redux-store';
+import { AppThunk } from '@state/redux-store';
 import { IApiPeopleTools, IApiPerson } from './interfaces';
 import PersonService from './service';
 

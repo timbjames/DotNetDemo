@@ -1,20 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import ReduxToastr from 'react-redux-toastr';
-import { Provider } from 'react-redux';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import store from './state/redux-store';
+import store from '@state/redux-store';
+import ProviderWrapper from '@state/provider.component';
 import PageRoot from '@pages/root.component';
-import MainNavigation from '@pages/navigation.component';
+import MainNavigation from '@pages/navigation/navigation.component';
 
 const App: React.FC = () => {
 
   return (
-    <Provider store={store}>
-
-      <Router>
+    <ProviderWrapper store={store}>
 
         <MainNavigation />
 
@@ -24,8 +21,6 @@ const App: React.FC = () => {
 
         </div>
 
-      </Router>
-
       <ReduxToastr 
         timeOut={3000} 
         preventDuplicates 
@@ -34,7 +29,7 @@ const App: React.FC = () => {
         transitionOut="fadeOut" 
         closeOnToastrClick progressBar />
 
-    </Provider>
+    </ProviderWrapper>
   );
 }
 
