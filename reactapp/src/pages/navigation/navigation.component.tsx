@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { routes } from '@pages/routes';
+import UserDetails from '@features/user/user.component';
 
 const MainNavigation: React.FC = () => {
 
@@ -22,6 +23,9 @@ const MainNavigation: React.FC = () => {
               </NavLink>
           </li>
         </ul>
+        <span className="d-flex navbar-text ms-auto p-2">
+          <UserDetails />
+        </span>
     </nav>
   );
 }

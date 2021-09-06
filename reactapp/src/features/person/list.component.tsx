@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@hooks/appHooks';
-import { alternateState, changeStatus, getPeopleAsync, getToolsAsync } from './slice';
+import { alternateState, changeStatus, getPeopleAsync, getToolsAsync } from './person.slice';
 
 const PersonList: React.FC = () => {
 

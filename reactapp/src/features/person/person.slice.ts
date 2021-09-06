@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk } from '@state/redux-store';
-import { IApiPeopleTools, IApiPerson } from './interfaces';
-import PersonService from './service';
+import { IApiPeopleTools, IApiPerson } from './person.interfaces';
+import PersonService from './person.service';
 
 type Status = 'idle' | 'loading' | 'failed';
 

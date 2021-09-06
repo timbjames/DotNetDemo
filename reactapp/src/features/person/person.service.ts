@@ -3,7 +3,7 @@ import { AxiosResponse } from 'axios';
 import { NotificationService } from '@utils/service/notification.service';
 
 import http from '@utils/service/http-client';
-import { IApiPeopleTools, IApiPerson, IApiSearchResult } from './interfaces';
+import { IApiPeopleTools, IApiPerson, IApiSearchResult } from './person.interfaces';
 
 class PersonService {
 
