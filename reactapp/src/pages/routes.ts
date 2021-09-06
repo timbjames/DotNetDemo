@@ -1,7 +1,7 @@
 export const routes = {
     cars: {
         url: '/cars',
-        linkText: 'cars'
+        linkText: 'Cars'
     },
     home: {
         url: '/',

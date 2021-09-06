@@ -12,8 +12,9 @@ code {
     monospace;
 }
 
-/* .btn {
-  & .btn-icon {
+.btn {
+  &.btn-icon {
     border-radius: 50%;
+    padding: 1px 6px;
   }
-} */
+}
