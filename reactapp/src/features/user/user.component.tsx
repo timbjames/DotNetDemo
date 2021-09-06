@@ -18,7 +18,7 @@ const UserDetails: React.FC = () => {
     };
 
     return (
-        <div>Hi! {userState.user.name} {userState.time} <button onClick={handleClick}>+</button></div>
+        <div>Hi! {userState.user.name} {userState.time} <button className="btn btn-primary" onClick={handleClick}><i className="bi-plus"></i></button></div>
     )
 };
 
