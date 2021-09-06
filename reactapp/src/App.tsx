@@ -2,6 +2,7 @@ import React from 'react';
 import ReduxToastr from 'react-redux-toastr';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 
 import store from '@state/redux-store';
 import ProviderWrapper from '@state/provider.component';
@@ -24,7 +25,7 @@ const App: React.FC = () => {
       <ReduxToastr 
         timeOut={3000} 
         preventDuplicates 
-        position="top-left" 
+        position="bottom-right" 
         transitionIn="fadeIn" 
         transitionOut="fadeOut" 
         closeOnToastrClick progressBar />

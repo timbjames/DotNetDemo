@@ -11,17 +11,17 @@ const PersonList: React.FC = () => {
 
     const selectedPetType = useRef<HTMLSelectElement>(null);
 
-    // const getPeople = useCallback(() => {
-    //     dispatch(getPeopleAsync());
-    //     dispatch(getToolsAsync());
+    const getPeople = useCallback(() => {
+        dispatch(getPeopleAsync());
+        dispatch(getToolsAsync());
 
-    //     console.log(selectedPetType.current?.value);
+        console.log(selectedPetType.current?.value);
 
-    // }, [dispatch]);
+    }, [dispatch]);
 
-    // useEffect(() => {
-    //     getPeople();
-    // }, [getPeople]);
+    useEffect(() => {
+        getPeople();
+    }, [getPeople]);
 
     // TODO xUI: Need to do something
 

@@ -26,6 +26,10 @@ export const getPeopleAsync = createAsyncThunk(
         // Get new response
         const response = await PersonService.getPeople();
 
+        if ((response as any).isAxiosError){
+            return thunkApi.rejectWithValue('Opps');
+        }
+
         // Return as reducer payload
         return response.data;
     }
@@ -59,6 +63,11 @@ export const personSlice = createSlice({
             .addCase(getPeopleAsync.fulfilled, (state, action) => {
                 state.status = 'idle';
                 state.people = action.payload;
+            })
+            .addCase(getPeopleAsync.rejected, (state, action) => {
+                state.status = 'idle';
+                state.people = [];
+                console.log(action.payload);
             })
             .addCase(getToolsAsync.pending, (state) => {
                 //state.status = 'loading';
