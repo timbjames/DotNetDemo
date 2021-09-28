@@ -9,7 +9,11 @@ import ProviderWrapper from '@state/provider.component';
 import PageRoot from '@pages/root.component';
 import MainNavigation from '@pages/navigation/navigation.component';
 
+import toast, { Toaster, ToastBar } from 'react-hot-toast';
+
 const App: React.FC = () => {
+
+  const notify = () => toast('Here I am baby!');
 
   return (
     <ProviderWrapper store={store}>
@@ -20,6 +24,8 @@ const App: React.FC = () => {
 
           <PageRoot />
 
+          <button  type="button" onClick={notify}>Click Me</button>
+
         </div>
 
       <ReduxToastr 
@@ -29,6 +35,23 @@ const App: React.FC = () => {
         transitionIn="fadeIn" 
         transitionOut="fadeOut" 
         closeOnToastrClick progressBar />
+
+      <Toaster>
+        {
+          (t) => (
+            <ToastBar toast={t}>
+              {
+                ({ icon, message }) => (
+                  <>
+                    {icon}
+                    {message} boooooo
+                  </>
+                )
+              }
+            </ToastBar>
+          )
+        }
+      </Toaster>
 
     </ProviderWrapper>
   );
